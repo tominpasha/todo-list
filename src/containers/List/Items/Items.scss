@@ -1,0 +1,42 @@
+@import 'src/assets/scss/variables';
+
+.listItems {
+	flex: 1;
+	border: 1px solid $colorOrange;
+	margin: 10px 0;
+	overflow-y: overlay;
+	height: 0;
+
+	&-noItems {
+		padding: 50px 0;
+		text-align: center;
+		font-weight: 700;
+	}
+
+	&-item {
+		min-height: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid $colorBlack;
+
+		&-col {
+			padding: 10px 15px;
+		}
+
+		&-task {
+			flex: 1;
+			white-space: pre-wrap;
+			overflow: hidden;
+			word-break: break-word;
+		}
+
+		&-done {
+			width: 200px;
+		}
+
+		&-del {
+			width: 200px;
+		}
+	}
+}

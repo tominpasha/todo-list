@@ -1,0 +1,33 @@
+@import 'src/assets/scss/variables';
+
+.checkbox {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+
+	&-right {
+		flex-direction: row-reverse;
+	}
+
+	&-icon {
+		width: 25px;
+		height: 25px;
+		background: $colorOrange;
+		border-radius: 3px;
+
+		&-checked {
+			background: $colorOrange url('src/assets/images/apply.svg') 50% 50% no-repeat;
+		}
+	}
+
+	&-label {
+		&-left {
+			margin-left: 10px;
+		}
+
+		&-right {
+			margin-right: 10px;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@import 'src/assets/scss/variables';
+
+.listHeader {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: $colorOrange;
+	color: $colorWhite;
+	border-radius: 10px 10px 0 0;
+	font-weight: 700;
+
+	&-col {
+		padding: 10px 15px;
+	}
+
+	&-task {
+		flex: 1;
+	}
+
+	&-done {
+		width: 200px;
+	}
+
+	&-del {
+		width: 200px;
+	}
+}
