@@ -1,6 +1,7 @@
 import { StoreModel, TodoModel } from './store.model';
 import {
 	ADD_TODO_ACTION,
+	CHANGE_TODO_DONE_ACTION,
 	DELETE_TODO_ACTION,
 	SET_FILTER_UNDONE_ACTION,
 	SET_SHOW_ADD_FORM_ACTION,
@@ -18,9 +19,11 @@ export default (state = initialState, { type, ...payload }: any) => {
 	switch (type) {
 		case SET_SHOW_ADD_FORM_ACTION:
 			return { ...state, showAddForm: payload.show };
+
 		case SET_FILTER_UNDONE_ACTION:
 			return { ...state, filterUndone: payload.filter };
-		case ADD_TODO_ACTION:
+
+		case ADD_TODO_ACTION: {
 			const newTodo: TodoModel = {
 				id: newTodoIdx,
 				task: payload.task,
@@ -28,9 +31,20 @@ export default (state = initialState, { type, ...payload }: any) => {
 			};
 			newTodoIdx++;
 			return { ...state, todos: [newTodo, ...state.todos], showAddForm: false };
-		case DELETE_TODO_ACTION:
+		}
+
+		case DELETE_TODO_ACTION: {
 			const todos = state.todos.filter((todo) => todo.id !== payload.id);
 			return { ...state, todos };
+		}
+
+		case CHANGE_TODO_DONE_ACTION: {
+			const todos = state.todos.map((todo) => ({
+				...todo,
+				done: todo.id !== payload.id ? todo.done : payload.done,
+			}));
+			return { ...state, todos };
+		}
 	}
 	return state;
 };
